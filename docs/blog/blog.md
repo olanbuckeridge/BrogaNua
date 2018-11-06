@@ -1,72 +1,21 @@
-# Blog: MY-PROJECT-TITLE
+<h1><b>CA400 Irish Sneakers Application Blog</b></h1>
 
-**MY-NAME**
+My blog for this project can be found at https://olanca400.wordpress.com/
 
-## My First Blog Entry
+<h1><b> The Beginning </b></h1>
 
-This is my first blog entry.
+Thanks for joining me!
 
-The blog is written in [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
-Markdown is a simple text-based mark-up language.
+The project has started. I met with Gareth Jones a couple of times to discuss my project ideas and refined what I will be tackling.
 
-## My Second Blog Entry
+I had my project proposals too where my project idea was approved last week and am ready to begin work.
 
-This week, I learned how to include
-[images](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#images)
-in my blog.
+The main focus over the next week or two is researching everything that will be going into the application so I can put together my functional specification.
+<h2><b>Idea</b></h2>
+<span style="font-weight: 400;">The idea for my app is an Irish sneaker based app. As a sneakerhead it is an area that I’m very passionate about. I am constantly getting messages off people I know and people off Instagram wondering where to get certain pairs of sneakers. I want to create an app that offers consumers a place to find their sneakers without having to crawl through multiple sites. I want to crawl the websites of Irish retailers for their sneakers and compile pages for different brands/ models. The app will show you wear the nearest retailer to purchase the sneakers you want and show you lowest prices. The app will be broken up into sections - Catalog, Hyped Releases and Community.</span>
 
-![cat](https://gitlab.computing.dcu.ie/sblott/2018-ca400-XXXX/raw/master/docs/blog/images/cat.jpg)
+<span style="font-weight: 400;">The Catalog section will contain data scraped from Irish Retailers allowing one channel for consumers to shop for their sneakers.</span>
 
-Here are the instructions:
+<span style="font-weight: 400;">The Hyped Releases will be the very limited sneakers that are raffled off and available through competitions. There is normally one or two big drops a month and unless you’re checking retailers instagrams regularly, you won’t know about releases. I want to ensure all Irish sneakerheads get a chance at these sneakers.</span>
 
-- Add the image to your repo (probably using the `images` sub-directory here).
-  The cat example above is in `./images/cat.jpg`.
-
-- Commit that and push it to your repo.
-
-- On Gitlab, navigate to your new image and click *Raw*.  You get the raw URL of your image.  Copy that URL.
-
-- Add your image to this document using the following format:
-
-    <pre>![alternative text](URL)</pre>
-
-See the example [here](https://gitlab.computing.dcu.ie/sblott/2018-ca400-XXXX/raw/master/docs/blog/blog.md).
-
-You can also mention other users (like me: @sblott).
-
-## Including Code
-
-Raw text:
-```
-Mary had a little lamb,
-it's fleece was white as snow.
-```
-
-Syntax highlighting is also possible; for example...
-
-Python:
-```python
-i = 0
-while i < len(s):
-   # So something.
-   i = i + 1
-```
-
-Java:
-```java
-for (i=0; i<s.length(); i+=1) {
-   // Do something.
-}
-```
-
-Coffeescript:
-```coffeescript
-i = 0
-while i < s.length
-   # So something.
-   i = i + 1
-```
-
-## Instructions
-
-Once you've understood this sample, replace it with your own blog.
+<span style="font-weight: 400;">The Community section will contain information about events within the community and to show off local creatives and talent.</span>
