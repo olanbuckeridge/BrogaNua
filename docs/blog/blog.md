@@ -29,3 +29,14 @@ I discussed the draft of the spec with Gareth Jones and he pointed out some area
 ![Functional Spec](https://olanca400.files.wordpress.com/2019/01/Functional-Spec.jpeg)
 
 It was a good feeling to get it finished as I put quite a bit of research into how the application would operate and I feel now I have greater understanding of the architecture and interface.
+
+<h1><b>Setting up Gitlab - managing devices</b></h1>
+
+![GitLab](https://olanca400.files.wordpress.com/2019/01/GitLab.png)
+
+
+Last year for my 3rd Year Project, I used Windows 10 to develop my application and did virtually all the work on my desktop.
+
+This year I have installed Ubuntu on my desktop and my laptop to allow me to work at home, in the library or while travelling.
+
+I now have my GitLab up and running between the two devices and have started to work on the development. I have also setup a Dropbox to manage images/ files to help with maintaining this blog.
