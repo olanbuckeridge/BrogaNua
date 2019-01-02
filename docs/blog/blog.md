@@ -40,3 +40,13 @@ Last year for my 3rd Year Project, I used Windows 10 to develop my application a
 This year I have installed Ubuntu on my desktop and my laptop to allow me to work at home, in the library or while travelling.
 
 I now have my GitLab up and running between the two devices and have started to work on the development. I have also setup a Dropbox to manage images/ files to help with maintaining this blog.
+
+
+Exams are starting to get close and my focus is drawn to them but I decided to try and begin development as I don’t want to fall too far behind schedule.
+
+![App Drawer](https://olanca400.files.wordpress.com/2019/01/App-Drawer.jpeg)
+
+I started off by adding a basic app drawer to navigate between different activities. This allows me to further develop each section. I have been working on the Back-End trying to work on web scraping but it’s nice to take a break and see some visual improvements on the Front-End from time to time.
+
+Although I am focusing on exams – I am going to try and commit 2 hours a day to continue developing on the application while in exam period as I don’t want to fall behind.
+
