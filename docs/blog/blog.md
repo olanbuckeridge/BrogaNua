@@ -19,3 +19,13 @@ The main focus over the next week or two is researching everything that will be 
 <span style="font-weight: 400;">The Hyped Releases will be the very limited sneakers that are raffled off and available through competitions. There is normally one or two big drops a month and unless you’re checking retailers instagrams regularly, you won’t know about releases. I want to ensure all Irish sneakerheads get a chance at these sneakers.</span>
 
 <span style="font-weight: 400;">The Community section will contain information about events within the community and to show off local creatives and talent.</span>
+
+<h1><b>Functional Specification</b></h1>
+
+I managed to get the Functional Specification completed by Week 10 - November 27th.
+
+I discussed the draft of the spec with Gareth Jones and he pointed out some areas to add to and improve on.
+
+![Functional Spec](https://olanca400.files.wordpress.com/2019/01/Functional-Spec.jpeg)
+
+It was a good feeling to get it finished as I put quite a bit of research into how the application would operate and I feel now I have greater understanding of the architecture and interface.
