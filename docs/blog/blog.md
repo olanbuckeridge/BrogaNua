@@ -41,6 +41,7 @@ This year I have installed Ubuntu on my desktop and my laptop to allow me to wor
 
 I now have my GitLab up and running between the two devices and have started to work on the development. I have also setup a Dropbox to manage images/ files to help with maintaining this blog.
 
+<h1><b>App Drawer</b></h1>
 
 Exams are starting to get close and my focus is drawn to them but I decided to try and begin development as I don’t want to fall too far behind schedule.
 
