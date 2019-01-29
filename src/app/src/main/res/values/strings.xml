@@ -16,5 +16,15 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="hintName">Name</string>
+    <string name="hintPassword">Password</string>
+    <string name="login">Login</string>
+    <string name="no_of_incorrect_attemps">No. of incorrect attemps:</string>
+    <string name="newUserRegister">New User? Register</string>
+    <string name="register">Register</string>
+    <string name="alreadyRegisteredLogin">Already Registered? Login</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
 
 </resources>

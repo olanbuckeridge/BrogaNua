@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "94456757457",
+    "firebase_url": "https://broganua-59918.firebaseio.com",
+    "project_id": "broganua-59918",
+    "storage_bucket": "broganua-59918.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94456757457:android:a9da5ec42d687576",
+        "android_client_info": {
+          "package_name": "ie.dcu.computing.student.buckero2.broganua"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "94456757457-1m4vgsfu052j7fnqtrdcuqs4j64vvch5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZNj8paIPo0H71deKMgCI7h8G5K2BIhCI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
