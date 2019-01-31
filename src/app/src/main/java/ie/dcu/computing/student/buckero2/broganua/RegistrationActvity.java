@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class RegistrationActvity extends AppCompatActivity {
 
@@ -45,8 +46,7 @@ public class RegistrationActvity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
                             if (task.isSuccessful()) {
-                                Toast.makeText(RegistrationActvity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(RegistrationActvity.this, LoginActivity.class));
+                                sendEmailVerification();
                             }
                             else {
                                 Toast.makeText(RegistrationActvity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
@@ -90,5 +90,24 @@ public class RegistrationActvity extends AppCompatActivity {
         }
 
         return result;
+    }
+
+    private void sendEmailVerification () {
+        FirebaseUser firebaseUser = firebaseAuth.getInstance().getCurrentUser();
+        if (firebaseUser != null) {
+            firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(RegistrationActvity.this, "Successfully registered! Please verify your email, verification email has been sent.", Toast.LENGTH_SHORT).show();
+                        firebaseAuth.signOut();
+                        startActivity(new Intent(RegistrationActvity.this, LoginActivity.class));
+                    }
+                    else {
+                        Toast.makeText(RegistrationActvity.this, "Verification email hasn't been sent", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 }
