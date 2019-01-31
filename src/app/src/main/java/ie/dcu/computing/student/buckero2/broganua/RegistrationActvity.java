@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,15 +16,21 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegistrationActvity extends AppCompatActivity {
 
     private EditText userName;
     private EditText userEmail;
     private EditText userPassword;
+    private EditText userAge;
+    private EditText userShoeSize;
     private Button registerButton;
     private TextView userLogin;
     private FirebaseAuth firebaseAuth;
+    private ImageView userProfilePic;
+    String name, age, email, shoeSize, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +54,10 @@ public class RegistrationActvity extends AppCompatActivity {
 
                             if (task.isSuccessful()) {
                                 sendEmailVerification();
+                                sendUserData();
+                                firebaseAuth.signOut();
+                                finish();
+                                startActivity(new Intent(RegistrationActvity.this, LoginActivity.class));
                             }
                             else {
                                 Toast.makeText(RegistrationActvity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
@@ -71,6 +82,9 @@ public class RegistrationActvity extends AppCompatActivity {
         userPassword = (EditText) findViewById(R.id.etPassword);
         userLogin = (TextView) findViewById(R.id.tvRegistered);
         registerButton = (Button) findViewById(R.id.registerButton);
+        userAge = (EditText) findViewById(R.id.etAge);
+        userShoeSize = (EditText) findViewById(R.id.etShoeSize);
+        userProfilePic = (ImageView) findViewById(R.id.profilePic);
 
 
     }
@@ -78,11 +92,13 @@ public class RegistrationActvity extends AppCompatActivity {
     private Boolean validate() {
         Boolean result = false;
 
-        String name = userName.getText().toString();
-        String password = userPassword.getText().toString();
-        String email = userEmail.getText().toString();
+        name = userName.getText().toString();
+        password = userPassword.getText().toString();
+        email = userEmail.getText().toString();
+        age = userAge.getText().toString();
+        shoeSize = userShoeSize.getText().toString();
 
-        if (name.isEmpty() || password.isEmpty() || email.isEmpty()) {
+        if (name.isEmpty() || password.isEmpty() || email.isEmpty() || age.isEmpty() || shoeSize.isEmpty()) {
             Toast.makeText(RegistrationActvity.this, "Please fill in all details", Toast.LENGTH_SHORT).show();
         }
         else {
@@ -100,8 +116,6 @@ public class RegistrationActvity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
                         Toast.makeText(RegistrationActvity.this, "Successfully registered! Please verify your email, verification email has been sent.", Toast.LENGTH_SHORT).show();
-                        firebaseAuth.signOut();
-                        startActivity(new Intent(RegistrationActvity.this, LoginActivity.class));
                     }
                     else {
                         Toast.makeText(RegistrationActvity.this, "Verification email hasn't been sent", Toast.LENGTH_SHORT).show();
@@ -109,5 +123,12 @@ public class RegistrationActvity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    private void sendUserData () {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = firebaseDatabase.getReference(firebaseAuth.getUid());
+        UserProfile userProfile = new UserProfile(age, email, name, shoeSize);
+        myRef.setValue(userProfile);
     }
 }
