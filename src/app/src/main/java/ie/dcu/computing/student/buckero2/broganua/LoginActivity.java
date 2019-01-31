@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView userRegistration;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
+    private TextView resetPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         Info = (TextView) findViewById(R.id.tvInfo);
         Login = (Button) findViewById(R.id.loginButton);
         userRegistration = (TextView) findViewById(R.id.tvRegister);
+        resetPassword = (TextView) findViewById(R.id.tvPassReset);
 
         Info.setText("No. of attempts remaining: 5");
 
@@ -71,6 +73,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        resetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, PasswordActivity.class));
+            }
+        });
     }
 
     private void validate(String userName, String userPassword) {

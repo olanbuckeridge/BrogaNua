@@ -24,10 +24,10 @@
     <string name="register">Register</string>
     <string name="alreadyRegisteredLogin">Already Registered? Login</string>
     <string name="password">Password</string>
-    <string name="email">Email</string>
     <string name="name">Name</string>
     <string name="profile_fragment">Profile Fragment</string>
     <string name="logout">Logout</string>
     <string name="forgot_password">Forgot Password?</string>
+    <string name="reset">Reset Password</string>
 
 </resources>
