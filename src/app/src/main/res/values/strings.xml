@@ -31,5 +31,6 @@
     <string name="reset">Reset Password</string>
     <string name="age">Age</string>
     <string name="shoe_size_eu">Shoe Size (EU)</string>
+    <string name="profilepicture">profilePicture</string>
 
 </resources>

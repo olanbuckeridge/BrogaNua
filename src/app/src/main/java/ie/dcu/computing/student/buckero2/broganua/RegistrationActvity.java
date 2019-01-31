@@ -84,7 +84,8 @@ public class RegistrationActvity extends AppCompatActivity {
         registerButton = (Button) findViewById(R.id.registerButton);
         userAge = (EditText) findViewById(R.id.etAge);
         userShoeSize = (EditText) findViewById(R.id.etShoeSize);
-        userProfilePic = (ImageView) findViewById(R.id.profilePic);
+        userProfilePic = (ImageView) findViewById(R.id.ivProfile);
+
 
 
     }
