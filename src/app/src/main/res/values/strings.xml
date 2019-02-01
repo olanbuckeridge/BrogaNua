@@ -32,5 +32,10 @@
     <string name="age">Age</string>
     <string name="shoe_size_eu">Shoe Size (EU)</string>
     <string name="profilepicture">profilePicture</string>
+    <string name="name_colon">Name:</string>
+    <string name="age_colon">Age:</string>
+    <string name="email_colon">Email:</string>
+    <string name="shoe_size_eu_colon">Shoe Size (EU):</string>
+    <string name="edit">Edit</string>
 
 </resources>
