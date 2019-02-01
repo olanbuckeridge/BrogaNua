@@ -37,5 +37,10 @@
     <string name="email_colon">Email:</string>
     <string name="shoe_size_eu_colon">Shoe Size (EU):</string>
     <string name="edit">Edit</string>
+    <string name="update">Update</string>
+    <string name="change_password">Change Password</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="enter_password">Enter Password:</string>
+    <string name="save">Save</string>
 
 </resources>

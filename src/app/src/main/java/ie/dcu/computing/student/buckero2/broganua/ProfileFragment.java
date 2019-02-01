@@ -1,11 +1,13 @@
 package ie.dcu.computing.student.buckero2.broganua;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -19,27 +21,27 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 import static android.support.constraint.Constraints.TAG;
 
 public class ProfileFragment extends Fragment {
 
     private TextView profileName, profileAge, profileEmail, profileShoeSize;
-    private Button profileEditButton;
+    private Button profileEditButton, passwordChange;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        profileName = (TextView)view.findViewById(R.id.tvProfileName);
-        profileAge = (TextView)view.findViewById(R.id.tvProfileAge);
-        profileEmail = (TextView)view.findViewById(R.id.tvProfileEmail);
-        profileShoeSize = (TextView)view.findViewById(R.id.tvProfileShoeSize);
+        profileName = (TextView)view.findViewById(R.id.etProfileName);
+        profileAge = (TextView)view.findViewById(R.id.etProfileAge);
+        profileEmail = (TextView)view.findViewById(R.id.etProfileEmail);
+        profileShoeSize = (TextView)view.findViewById(R.id.etProfileShoeSize);
         profileEditButton = (Button)view.findViewById(R.id.buttonProfileUpdate);
+        passwordChange = (Button)view.findViewById(R.id.buttonPasswordChange);
         Log.d(TAG, "onCreateView: started.");
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -62,6 +64,24 @@ public class ProfileFragment extends Fragment {
                 Toast.makeText(getContext(), databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        profileEditButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), UpdateProfileActivity.class));
+
+            }
+        });
+
+        passwordChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), UpdatePasswordActivity.class));
+
+            }
+        });
+
+
 
 
         return view;
