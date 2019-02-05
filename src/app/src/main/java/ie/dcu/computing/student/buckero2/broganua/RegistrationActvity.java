@@ -31,6 +31,8 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 
+import static java.security.AccessController.getContext;
+
 public class RegistrationActvity extends AppCompatActivity {
 
     private EditText userName;

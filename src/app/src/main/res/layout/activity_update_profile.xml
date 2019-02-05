@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/ivProfileUpdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="225sp"
+        android:layout_height="225sp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -35,13 +35,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:hint="@string/name_colon"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivProfileUpdate"
         app:layout_constraintVertical_bias="0.050000012"
-        android:inputType="textPersonName"
-        android:importantForAutofill="no" tools:targetApi="o" />
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/etProfileAge"
@@ -54,13 +56,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:hint="@string/age_colon"
+        android:importantForAutofill="no"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etProfileName"
         app:layout_constraintVertical_bias="0.050000012"
-        android:inputType="number"
-        android:importantForAutofill="no" tools:targetApi="o" />
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/etProfileEmail"
@@ -73,13 +77,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:hint="@string/email_colon"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etProfileAge"
         app:layout_constraintVertical_bias="0.050000012"
-        android:inputType="textEmailAddress"
-        android:importantForAutofill="no" tools:targetApi="o" />
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/etProfileShoeSize"
@@ -92,13 +98,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:hint="@string/shoe_size_eu_colon"
+        android:importantForAutofill="no"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etProfileEmail"
         app:layout_constraintVertical_bias="0.050000012"
-        android:inputType="number"
-        android:importantForAutofill="no" tools:targetApi="o" />
+        tools:targetApi="o" />
 
     <Button
         android:id="@+id/buttonUpdate"
