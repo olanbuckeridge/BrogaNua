@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "94456757457-hl86kbdesso8cjdo19555segmh0fr719.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ie.dcu.computing.student.buckero2.broganua",
+            "certificate_hash": "a8e5750c8c16ded4262cba53aa80cde16a626411"
+          }
+        },
+        {
           "client_id": "94456757457-1m4vgsfu052j7fnqtrdcuqs4j64vvch5.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "94456757457-1m4vgsfu052j7fnqtrdcuqs4j64vvch5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
