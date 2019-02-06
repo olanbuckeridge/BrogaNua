@@ -14,7 +14,7 @@ page_soup = soup(page_html, "html.parser")
 # grabs each product
 containers = page_soup.findAll("div", {"class":"product-desc"})
 
-filename = "lss_mens_trainers.csv"
+filename = "data/lss_mens_trainers.csv"
 f = open(filename, "w")
 
 headers = "brand, product_name, current_price, sizes_available\n"
