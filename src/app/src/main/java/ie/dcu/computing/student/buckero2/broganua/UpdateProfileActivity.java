@@ -83,10 +83,10 @@ public class UpdateProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
-                newUserName.setText("Name: " + userProfile.getUserName());
-                newUserAge.setText("Age: " + userProfile.getUserAge());
-                newUserEmail.setText("Email: " + userProfile.getUserEmail());
-                newUserShoeSize.setText("Shoe Size: " + userProfile.getUserShoeSize());
+                newUserName.setText(userProfile.getUserName());
+                newUserAge.setText(userProfile.getUserAge());
+                newUserEmail.setText(userProfile.getUserEmail());
+                newUserShoeSize.setText(userProfile.getUserShoeSize());
             }
 
             @Override
