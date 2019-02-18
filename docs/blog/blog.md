@@ -51,3 +51,27 @@ I started off by adding a basic app drawer to navigate between different activit
 
 Although I am focusing on exams – I am going to try and commit 2 hours a day to continue developing on the application while in exam period as I don’t want to fall behind.
 
+
+<h1><b>Login & Registration</b></h1>
+
+Since my last post I put in a lot of work trying to get some of the back-end functioning.
+
+It took a while but I now have registration, login, email verification, forgot password etc all set up and working using Firebase in my application.
+
+You can see the current registration screen below which allows users to enter their: Name, Email, Password, Shoe Size and Profile Picture. This is all stored in a database on Firebase.
+
+![Registration](https://olanca400.files.wordpress.com/2019/02/screenshot_20190218-155032.jpg?w=1200&h=800)
+
+
+<h1><b>User Profile V1</b></h1>
+
+Once I got the User Authentication working for the Login & Registration. I set up a Database for the User Profile.
+
+It allows the application to retrieve data from the Firebase – Database based on the UserID. The User can then edit their profile on the Database and it is updated in real-time.
+
+There is a lot of room to improve in terms of the User Interface – but getting the back-end working is my priority right now.
+
+![Profile](https://olanca400.files.wordpress.com/2019/02/screenshot_20190218-155010.jpg?w=381&h=804)
+
+
+
