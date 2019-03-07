@@ -73,5 +73,18 @@ There is a lot of room to improve in terms of the User Interface – but getting
 
 ![Profile](https://olanca400.files.wordpress.com/2019/02/screenshot_20190218-155010.jpg?w=381&h=804)
 
+<h1><b>Meeting with Gareth - Planning</b></h1>
+
+Today I met with my supervisor, Gareth Jones.
+
+We discussed the ethical approval that is required for the application and the extent of user data that will be obtained.
+
+While I now have a lot of the front-end technology up and running and have started web-scraping the Irish retailers for the catalogue section, I feel like I’m not as far ahead in the application that I would like to be.
+
+Myself and Gareth decided that my next plan of action is to focus on building a well designed Database that is flexible and easy to retrieve information from. It is important to ensure that the design and structure is well thought out to store all the products from retailers.
+
+Once the database is functional, I will be focusing on connecting to the application and displaying the information. This is an area I have no experience in and will be tough to implement.
+
+There is a lot to do in the next few weeks but I’m optimistic after speaking to Gareth that I am on track to get the application completed.
 
 
