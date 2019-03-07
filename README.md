@@ -1,10 +1,6 @@
-# My Project Title
+# Bróga Nua
 
-This is a template for CA400 projects.  Please read these instructions carefully.
-
-This file is written in
-[markdown](https://guides.github.com/features/mastering-markdown/).  Markdown
-is a suitable format for documents stored in git repositories.
+An Irish Sneaker Android Application.
 
 ## Instructions
 
