@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # My Project Title
 
 This is a template for CA400 projects.  Please read these instructions carefully.
@@ -52,3 +53,17 @@ brief description of your project (two or three paragraphs).
    * [Python](https://gitlab.computing.dcu.ie/sblott/test-project-python)
    * [Java](https://gitlab.computing.dcu.ie/sblott/test-project-java)
    * [MySql](https://gitlab.computing.dcu.ie/sblott/test-project-mysql)
+=======
+# Bróga Nua
+
+An Irish Sneaker Android Application.
+
+## Additional Resources
+
+- Git [cheat sheet](https://gitlab.computing.dcu.ie/sblott/local-gitlab-documentation/blob/master/cheat-sheet.md)
+- Gitlab [CI environment](https://gitlab.computing.dcu.ie/sblott/docker-ci-environment) and it's [available software](https://gitlab.computing.dcu.ie/sblott/docker-ci-environment/blob/master/Dockerfile)
+- Example projects with CI configured:
+   * [Python](https://gitlab.computing.dcu.ie/sblott/test-project-python)
+   * [Java](https://gitlab.computing.dcu.ie/sblott/test-project-java)
+   * [MySql](https://gitlab.computing.dcu.ie/sblott/test-project-mysql)
+>>>>>>> e9d5dfe94f874e2fcdfdf29152054690c38bacbe
