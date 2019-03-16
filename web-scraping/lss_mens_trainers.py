@@ -1,47 +1,50 @@
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
+import re
+import pymysql
 
-my_url = 'https://www.lifestylesports.com/ie/mens-trainers/'
+conn = pymysql.connect(host='localhost', port=3306, user='root', passwd='r9mtj6ta', db='products')
 
-# opening up connection, grabbing the page
-uClient = uReq(my_url)
-page_html = uClient.read()
-uClient.close()
+cur = conn.cursor()
+cur.execute("SELECT * FROM products")
 
-# html parsing
-page_soup = soup(page_html, "html.parser")
+items = 0
+while items < 216:
+	# opening up connection, grabbing the page
+	uClient = uReq("https://www.lifestylesports.com/ie/mens-trainers/?sz=72&start={}".format(items))
+	page_html = uClient.read()
+	uClient.close()
 
-# grabs each product
-containers = page_soup.findAll("div", {"class":"product-desc"})
+	# html parsing
+	page_soup = soup(page_html, "html.parser")
 
-filename = "data/lss_mens_trainers.csv"
-f = open(filename, "w")
+	# grabs each product
+	containers = page_soup.findAll("div", {"class":"product-tile with-quick-buy"})
 
-headers = "brand, product_name, current_price, sizes_available\n"
+	headers = "brand, model, current_price, sizes_available\n"
 
-f.write(headers)
+	for container in containers:
+		brand_container = container.findAll("a", {"class":"name-link"})
+		brand = brand_container[0].div.text.strip().split("\n",1)[0]
+		name_container = container.findAll("a", {"class":"name-link"})
+		if "Mens" in name_container[0].text.strip(): 
+			model = name_container[0].text.strip().split("Mens ",1)[1]
 
-for container in containers:
-	brand_container = container.findAll("a", {"class":"name-link"})
-	brand = brand_container[0].div.text.strip().split("\n",1)[0]
-	name_container = container.findAll("a", {"class":"name-link"})
-	if "Mens" in name_container[0].text.strip(): 
-		product_name = name_container[0].text.strip().split("Mens ",1)[1]
+		elif "Adults" in name_container[0].text.strip():
+			model = name_container[0].text.strip().split("Adults ",1)[1]
 
-	elif "Adults" in name_container[0].text.strip():
-		product_name = name_container[0].text.strip().split("Adults ",1)[1]
+		price_container = container.findAll("div", {"class":"product-pricing"})
+		current_price = price_container[0].text.strip()
+		price = current_price.split("\n")[0]
+		image_container = container.findAll("div", {"class":"product-image"})
+		image_container[0].find("img")
+		img = image_container[0].find("img")
+		if img.has_attr('data-src'):
+			img_url = img["data-src"]
+		else:
+			img_url = img['src']
+		retailer = "Life Style Sports"
 
-	price_container = container.findAll("div", {"class":"product-pricing"})
-	current_price = price_container[0].text.strip()
-	sizes_container = container.findAll("div", {"class":"product-sizes-in-stock"})
-	sizes_available = sizes_container[0].text.strip()
-
-	print("Brand: " + brand)
-	print("Name: " + product_name)
-	print("Price: " + current_price)
-	print(sizes_available)
-	print("*********************")
-
-	f.write(brand + "," + product_name + "," + current_price + "," + sizes_available.replace(","," | ") + "\n")
-
-f.close()
+		cur.execute("INSERT INTO products (brand, model, retailer, price, images) VALUES (\"%s\", \"%s\", \"%s\", \"%s\", \"%s\")", (brand, model, retailer, price.strip("€"), img_url))
+		cur.connection.commit()
+	items += 72
