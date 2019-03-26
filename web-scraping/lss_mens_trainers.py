@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup as soup
 import re
 import pymysql
 
-conn = pymysql.connect(host='localhost', port=3306, user='root', passwd='r9mtj6ta', db='products')
+conn = pymysql.connect(host='mydbproducts.cnu1e4enw5kt.eu-west-1.rds.amazonaws.com', port=3306, user='olanbuckeridge', passwd='r9mtj6ta', db='mydbproducts')
 
 cur = conn.cursor()
 cur.execute("SELECT * FROM products")
