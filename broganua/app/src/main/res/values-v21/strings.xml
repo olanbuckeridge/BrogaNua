@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="brand">brand</string>
+    <string name="productimage">productImage</string>
+    <string name="model">model</string>
+</resources>

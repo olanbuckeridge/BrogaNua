@@ -1,14 +1,20 @@
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 import re
-import pymysql
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import db
 
-conn = pymysql.connect(host='mydbproducts.cnu1e4enw5kt.eu-west-1.rds.amazonaws.com', port=3306, user='olanbuckeridge', passwd='r9mtj6ta', db='mydbproducts')
-
-cur = conn.cursor()
-cur.execute("SELECT * FROM products")
+# Fetch the service account key JSON file contents
+cred = credentials.Certificate('broganua-59918-firebase-adminsdk-97dx0-4bb70e5f48.json')
+# Initialize the app with a service account, granting admin privileges
+firebase_admin.initialize_app(cred, {
+    'databaseURL': 'https://broganua-59918.firebaseio.com/'
+})
+ref = db.reference('/products')
 
 items = 1
+i = 1
 while items < 3:
     uClient = uReq("https://nowhere.ie/collections/footwear?page={}".format(items))
     page_html = uClient.read()
@@ -22,6 +28,7 @@ while items < 3:
     #img_url = image_containers.get("src")
 
     for container in containers:
+        item_ref = db.reference('/products/nowhere/{}'.format(i))		
         brand_container = container.findAll("div", {"class":"product__title text-center"})
         brand = brand_container[0].text.strip().split(":")[0]
         model_container = container.findAll("div", {"class":"product__title text-center"})
@@ -39,13 +46,14 @@ while items < 3:
         img_150 = img["src"].strip("//")
         img_url = img_150.replace("150", "540")
         retailer = 'Nowhere'
-        '''print ("BRAND:",brand)
-        print ("MODEL:",model)
-        print ("PRICE:",price)
-        print ("IMAGE:",img_url)
-        print ("**************************")'''
-        cur.execute("INSERT INTO products (brand, model, retailer, price, images) VALUES (\"%s\", \"%s\", \"%s\", \"%s\", \"%s\")", (brand, model, retailer, price, img_url))
-        cur.connection.commit()
+        item_ref.set ({
+            'brand': brand,
+            'model': model,
+            'retailer': retailer,
+            'price': price.strip('€'),
+            'image': img_url
+        })
+        i += 1
 
     #print (src)
     items += 1
