@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,14 +18,16 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static android.support.v4.content.ContextCompat.startActivity;
 import static java.security.AccessController.getContext;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> implements Filterable {
 
     Context context;
     ArrayList<Products> products;
+    ArrayList<Products> productsFull;
     Uri uri;
     public MyAdapter(Context c, ArrayList<Products> p)
     {
@@ -46,10 +50,51 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         Picasso.get().load(products.get(i).getImage()).into(myViewHolder.image);
     }
 
+    MyAdapter(ArrayList<Products> products) {
+        this.products = products;
+        productsFull = new ArrayList<Products>(products);
+    }
+
     @Override
     public int getItemCount() {
         return products.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return testFilter;
+    }
+
+    private Filter testFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<Products> filteredList = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0){
+                filteredList.addAll(productsFull);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (Products item: productsFull) {
+                    if ((item.getModel().toLowerCase().contains(filterPattern)) || (item.getBrand().toLowerCase().contains(filterPattern))); {
+                        filteredList.add(item);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            products.clear();
+            products.addAll((ArrayList) results.values);
+            notifyDataSetChanged();
+        }
+    };
 
 
     class MyViewHolder extends RecyclerView.ViewHolder

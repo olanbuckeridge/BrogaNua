@@ -52,12 +52,12 @@ public class CatalogFragment extends Fragment {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
                 {
                     Products p = dataSnapshot1.getValue(Products.class);
                     list.add(p);
                 }
-                adapter = new MyAdapter(getContext(),list);
+                adapter = new MyAdapter(getContext(), list);
                 recyclerView.setAdapter(adapter);
             }
 
@@ -66,10 +66,6 @@ public class CatalogFragment extends Fragment {
                 Toast.makeText(getContext(), databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
 
         return view;
     }
