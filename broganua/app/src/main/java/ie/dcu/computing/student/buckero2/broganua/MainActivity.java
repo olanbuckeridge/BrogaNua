@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
-        DatabaseReference productsReference = firebaseDatabase.getReference().child("products").child("brown_thomas");
+        DatabaseReference productsReference = firebaseDatabase.getReference().child("products");
 
         StorageReference storageReference = firebaseStorage.getReference();
         storageReference.child(firebaseAuth.getUid()).child("Images/Profile Picture").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {

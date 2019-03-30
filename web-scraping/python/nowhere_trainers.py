@@ -45,15 +45,21 @@ while items < 3:
         img = image_container[0].find("img")
         img_150 = img["src"].strip("//")
         img_url = img_150.replace("150", "540")
+        link_container = brand_container[0].find('a')
+        prod_url = "https://nowhere.ie"+link_container['href']    
         retailer = 'Nowhere'
         item_ref.set ({
             'brand': brand,
             'model': model,
             'retailer': retailer,
             'price': price.strip('€'),
-            'image': img_url
+            'image': img_url,
+            'link': prod_url
         })
         i += 1
+        link_container = brand_container[0].find('a')
+        prod_url = "https://nowhere.ie"+link_container['href']
+        print (prod_url)
 
     #print (src)
     items += 1

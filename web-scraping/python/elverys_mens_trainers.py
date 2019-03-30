@@ -24,7 +24,7 @@ containers = page_soup.findAll("div", {"class":"col-sm-3 loadelement"})
 items = 1
 brands = ['Nike','Puma','Converse','adidas','New Balance','Timberland','Skechers']
 for container in containers:
-    item_ref = db.reference('/products/elverys/{}'.format(items))
+    #item_ref = db.reference('/products/elverys/{}'.format(items))
     brand_container = container.findAll("h4")
     brand = brand_container[0].text.strip()
 
@@ -46,12 +46,17 @@ for container in containers:
     image_container = container.findAll("a",{"class":"prdt-img"})
     image = image_container[0].find("img")
     img_url = "https://www.elverys.ie" + image["src"]
+
+    link_container = container.findAll('a', {"class":"prdt-img"})
+    prod_url = link_container[0]["href"]
+    print (prod_url)
+    
     retailer = 'Elverys'
-    item_ref.set ({
+    '''item_ref.set ({
         'brand': brand,
         'model': model,
         'retailer': retailer,
         'price': price.strip('€'),
         'image': img_url
     })
-    items += 1
+    items += 1'''

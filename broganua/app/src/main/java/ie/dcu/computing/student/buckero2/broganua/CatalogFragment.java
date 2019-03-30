@@ -48,7 +48,7 @@ public class CatalogFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         list = new ArrayList<Products>();
 
-        reference = FirebaseDatabase.getInstance().getReference().child("products").child("brown_thomas");
+        reference = FirebaseDatabase.getInstance().getReference().child("products");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
