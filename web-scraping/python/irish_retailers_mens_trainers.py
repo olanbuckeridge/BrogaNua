@@ -12,6 +12,7 @@ firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://broganua-59918.firebaseio.com/'
 })
 ref = db.reference('/products')
+ref.set('empty')
 
 products = 1
 
@@ -209,4 +210,4 @@ while retailer_no < 5:
             products += 1 
         retailer_no += 1
     else:
-        retailer_no = 5            
+        retailer_no = 5

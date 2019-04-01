@@ -18,21 +18,17 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import static android.support.v4.content.ContextCompat.startActivity;
-import static java.security.AccessController.getContext;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> implements Filterable {
 
     Context context;
     ArrayList<Products> products;
-    ArrayList<Products> productsFull;
-    Uri uri;
+    private ArrayList<Products> productsFull;
     public MyAdapter(Context c, ArrayList<Products> p)
     {
         context = c;
         products = p;
+        productsFull = new ArrayList<>(products);
     }
 
     @NonNull
@@ -50,15 +46,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
         Picasso.get().load(products.get(i).getImage()).into(myViewHolder.image);
     }
 
-    MyAdapter(ArrayList<Products> products) {
+    /* MyAdapter(ArrayList<Products> products) {
         this.products = products;
         productsFull = new ArrayList<Products>(products);
-    }
+    } */
 
     @Override
     public int getItemCount() {
         return products.size();
     }
+    /*
+    public void setFilter(ArrayList<Products> productsArrayList) {
+        products.clear();
+        products.addAll(productsArrayList);
+        notifyDataSetChanged();
+    } */
 
     @Override
     public Filter getFilter() {
@@ -76,7 +78,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
                 for (Products item: productsFull) {
-                    if ((item.getModel().toLowerCase().contains(filterPattern)) || (item.getBrand().toLowerCase().contains(filterPattern))); {
+                    if ((item.getModel().toLowerCase().contains(filterPattern)) || (item.getBrand().toLowerCase().contains(filterPattern)|| (item.getRetailer().toLowerCase().contains(filterPattern)))) {
                         filteredList.add(item);
                     }
                 }
@@ -95,6 +97,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
             notifyDataSetChanged();
         }
     };
+
 
 
     class MyViewHolder extends RecyclerView.ViewHolder
