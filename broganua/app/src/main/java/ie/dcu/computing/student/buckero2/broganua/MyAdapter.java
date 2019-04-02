@@ -46,21 +46,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
         Picasso.get().load(products.get(i).getImage()).into(myViewHolder.image);
     }
 
-    /* MyAdapter(ArrayList<Products> products) {
-        this.products = products;
-        productsFull = new ArrayList<Products>(products);
-    } */
 
     @Override
     public int getItemCount() {
         return products.size();
     }
-    /*
-    public void setFilter(ArrayList<Products> productsArrayList) {
-        products.clear();
-        products.addAll(productsArrayList);
-        notifyDataSetChanged();
-    } */
+
 
     @Override
     public Filter getFilter() {
