@@ -57,7 +57,7 @@ public class ProfileFragment extends Fragment {
         firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
 
-        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
+        DatabaseReference databaseReference = firebaseDatabase.getReferenceFromUrl("https://broganua-59918.firebaseio.com/users").child(firebaseAuth.getUid());
 
         StorageReference storageReference = firebaseStorage.getReference();
         storageReference.child(firebaseAuth.getUid()).child("Images/Profile Picture").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {

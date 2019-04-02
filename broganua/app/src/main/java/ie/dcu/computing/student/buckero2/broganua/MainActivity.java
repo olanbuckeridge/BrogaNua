@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         hImage = (ImageView)hView.findViewById(R.id.ivHeader);
         navigationView.setNavigationItemSelectedListener(this);
 
-        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
+        DatabaseReference databaseReference = firebaseDatabase.getReferenceFromUrl("https://broganua-59918.firebaseio.com/users").child(firebaseAuth.getUid());
         DatabaseReference productsReference = firebaseDatabase.getReference().child("products");
 
         StorageReference storageReference = firebaseStorage.getReference();

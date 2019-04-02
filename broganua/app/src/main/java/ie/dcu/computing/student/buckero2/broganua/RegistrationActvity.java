@@ -176,7 +176,7 @@ public class RegistrationActvity extends AppCompatActivity {
 
     private void sendUserData () {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = firebaseDatabase.getReference(firebaseAuth.getUid());
+        DatabaseReference myRef = firebaseDatabase.getReferenceFromUrl("https://broganua-59918.firebaseio.com/users/").child(firebaseAuth.getUid());
         StorageReference imageReference = storageReference.child(firebaseAuth.getUid()).child("Images").child("Profile Picture"); //User ID/Images/profile_pic
         UploadTask uploadTask = imageReference.putFile(imagePath);
         uploadTask.addOnFailureListener(new OnFailureListener() {
