@@ -30,15 +30,15 @@ public class ReleaseAdapter extends RecyclerView.Adapter<ReleaseAdapter.ReleaseV
     @NonNull
     @Override
     public ReleaseAdapter.ReleaseViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new ReleaseAdapter.ReleaseViewHolder(LayoutInflater.from(relcontext).inflate(R.layout.release, viewGroup ,false));
+        return new ReleaseAdapter.ReleaseViewHolder(LayoutInflater.from(relcontext).inflate(R.layout.release_card_view, viewGroup ,false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ReleaseAdapter.ReleaseViewHolder myViewHolder, int i) {
-        myViewHolder.profile.setText(releases.get(i).getIgprofile());
-        myViewHolder.caption.setText(releases.get(i).getIgcaption());
+        myViewHolder.profile.setText(releases.get(i).getIg_profile());
+        myViewHolder.caption.setText(releases.get(i).getIg_caption());
         myViewHolder.onClick(i);
-        Picasso.get().load(releases.get(i).getIgimage()).into(myViewHolder.image);
+        Picasso.get().load(releases.get(i).getIg_image()).into(myViewHolder.image);
     }
 
     @Override
@@ -55,8 +55,8 @@ public class ReleaseAdapter extends RecyclerView.Adapter<ReleaseAdapter.ReleaseV
             super(itemView);
             profile = (TextView) itemView.findViewById(R.id.igProfile);
             caption = (TextView) itemView.findViewById(R.id.igCaption);
-            image = (ImageView) itemView.findViewById(R.id.cardImage);
-            igButton = (Button) itemView.findViewById(R.id.btnInstagram);
+            image = (ImageView) itemView.findViewById(R.id.igImage);
+            igButton = (Button) itemView.findViewById(R.id.igButton);
 
         }
 
@@ -64,7 +64,7 @@ public class ReleaseAdapter extends RecyclerView.Adapter<ReleaseAdapter.ReleaseV
             igButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(releases.get(position).getIglink()));
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(releases.get(position).getIg_link()));
                     relcontext.startActivity(browserIntent);
                 }
             });

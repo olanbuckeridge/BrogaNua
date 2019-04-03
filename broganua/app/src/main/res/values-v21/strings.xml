@@ -3,4 +3,5 @@
     <string name="brand">brand</string>
     <string name="productimage">productImage</string>
     <string name="model">model</string>
+    <string name="instagram_image">Instagram Image</string>
 </resources>

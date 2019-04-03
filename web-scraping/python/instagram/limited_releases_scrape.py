@@ -40,12 +40,12 @@ while retailer_no < 3:
                 post_date = post.date.strftime('%H:%M %d/%m/%Y')
                 products += 1
                 item_ref.set({
-                    'profile': ig_profile,
-                    'profile_url': profile_url,
-                    'image': img_url,
-                    'caption': caption,
-                    'date': post_date,
-                    'link': link
+                    'ig_profile': ig_profile,
+                    'ig_profile_url': profile_url,
+                    'ig_image': img_url,
+                    'ig_caption': caption,
+                    'ig_date': post_date,
+                    'ig_link': link
                 })
 
             else:
@@ -66,12 +66,12 @@ while retailer_no < 3:
                 post_date = post.date.strftime('%H:%M %d/%m/%Y')
                 products += 1
                 item_ref.set({
-                    'profile': ig_profile,
-                    'profile_url': profile_url,
-                    'image': img_url,
-                    'caption': caption,
-                    'date': post_date,
-                    'link': link
+                    'ig_profile': ig_profile,
+                    'ig_profile_url': profile_url,
+                    'ig_image': img_url,
+                    'ig_caption': caption,
+                    'ig_date': post_date,
+                    'ig_link': link
                 })
             else:
                 pass

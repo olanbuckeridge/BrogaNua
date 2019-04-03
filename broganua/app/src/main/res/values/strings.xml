@@ -48,4 +48,8 @@
     <string name="price">price </string>
     <string name="shop">Shop</string>
     <string name="app_logo">App Logo</string>
+    <string name="profile">Profile</string>
+    <string name="open_on_instagram">Open on Instagram</string>
+    <string name="caption">Caption</string>
+    <string name="instagram_image">Instagram Image</string>
 </resources>
