@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,12 +40,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
         LayoutInflater inflater = LayoutInflater.from(context);
         view = inflater.inflate(R.layout.catalog_card_view, viewGroup, false);
         final MyViewHolder viewHolder = new MyViewHolder(view);
+        viewHolder.progressBar.setVisibility(View.INVISIBLE);
         viewHolder.image.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, ProductActivity.class);
-
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 i.putExtra("brand",products.get(viewHolder.getAdapterPosition()).getBrand());
                 i.putExtra("model",products.get(viewHolder.getAdapterPosition()).getModel());
                 i.putExtra("price",products.get(viewHolder.getAdapterPosition()).getPrice());
@@ -52,6 +54,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
                 i.putExtra("link",products.get(viewHolder.getAdapterPosition()).getLink());
 
                 context.startActivity(i);
+
             }
         });
 
@@ -117,6 +120,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
         TextView brand, model, price;
         ImageView image;
         Button shop;
+        ProgressBar progressBar;
         public MyViewHolder(View itemView) {
             super(itemView);
             brand = (TextView) itemView.findViewById(R.id.brand);
@@ -124,7 +128,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
             price = (TextView) itemView.findViewById(R.id.price);
             image = (ImageView) itemView.findViewById(R.id.productImage);
             shop = (Button) itemView.findViewById(R.id.shop);
-
+            progressBar = (ProgressBar) itemView.findViewById(R.id.progressBar);
         }
 
         public void onClick(final int position) {
@@ -132,6 +136,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
                 @Override
                 public void onClick(View v) {
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(products.get(position).getLink()));
+                    browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(browserIntent);
                 }
             });

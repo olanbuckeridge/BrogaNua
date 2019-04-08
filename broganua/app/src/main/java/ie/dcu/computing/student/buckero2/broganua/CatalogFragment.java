@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Filterable;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class CatalogFragment extends Fragment {
 
@@ -32,6 +34,7 @@ public class CatalogFragment extends Fragment {
     ArrayList<Products> productsList;
     ArrayList<Products> productsListFull;
     MyAdapter adapter;
+    ProgressBar progressBar;
 
     @Nullable
     @Override
@@ -39,6 +42,8 @@ public class CatalogFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_catalog, container, false);
         setHasOptionsMenu(true);
 
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
         recyclerView = (RecyclerView) view.findViewById(R.id.catalogRecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         productsList = new ArrayList<Products>();
@@ -51,8 +56,11 @@ public class CatalogFragment extends Fragment {
                     Products p = dataSnapshot1.getValue(Products.class);
                     productsList.add(p);
                 }
+                //Collections.shuffle(productsList);
                 adapter = new MyAdapter(getContext(), productsList);
                 recyclerView.setAdapter(adapter);
+                progressBar.setVisibility(View.INVISIBLE);
+
             }
 
             @Override

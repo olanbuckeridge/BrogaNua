@@ -36,6 +36,17 @@ while retailer_no < 5:
             model_container = container.findAll("span", {"class":"product-name name-link"})
             model = model_container[0].text.strip()
 
+            if brand == 'NIKE' or brand == 'ADIDAS ORIGINALS':
+                #print ("This should be changed.")
+                #print (model)
+                if 'Trainers' in model:
+                    model = model.replace('Trainers','')
+                    #print ("New",model)
+                elif 'Trainer' in model:
+                    model = model.replace('Trainer','')
+                    #print ("New",model)
+
+
             price_container = container.findAll("span", {"class":"product-sales-price"})
             price = price_container[0].text.strip()
 

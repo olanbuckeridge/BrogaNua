@@ -3,23 +3,45 @@ package ie.dcu.computing.student.buckero2.broganua;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 public class ProductActivity extends AppCompatActivity {
+
+    private FirebaseDatabase firebaseDatabase;
+    DatabaseReference reference;
+    RecyclerView productsRecyclerView;
+    ArrayList<Products> productsList;
+    ArrayList<Products> productsListFull;
+    MyAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference productsReference = firebaseDatabase.getReference().child("products");
 
         // hide the default actionbar
         getSupportActionBar().hide();
@@ -27,7 +49,7 @@ public class ProductActivity extends AppCompatActivity {
         // Receive data
 
         String brand  = getIntent().getExtras().getString("brand");
-        String model = getIntent().getExtras().getString("model");
+        final String model = getIntent().getExtras().getString("model");
         String price = getIntent().getExtras().getString("price") ;
         String image_url = getIntent().getExtras().getString("image") ;
 
@@ -61,6 +83,27 @@ public class ProductActivity extends AppCompatActivity {
         Picasso.get().load(image_url).into(img);
 
 
+        productsRecyclerView = findViewById(R.id.productsRecycler);
+        productsRecyclerView.setLayoutManager(new LinearLayoutManager(ProductActivity.this));
+        productsList = new ArrayList<Products>();
+        reference = FirebaseDatabase.getInstance().getReference().child("products");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    Products p = dataSnapshot1.getValue(Products.class);
+                    productsList.add(p);
+                }
+                adapter = new MyAdapter(ProductActivity.this, productsList);
+                adapter.getFilter().filter(model);
+                productsRecyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(ProductActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }

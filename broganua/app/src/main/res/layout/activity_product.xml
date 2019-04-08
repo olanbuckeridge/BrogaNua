@@ -21,7 +21,9 @@
             app:title="Product"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginStart="48dp"
-            app:expandedTitleMarginEnd="64dp">
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleTextAppearance="@style/ExpandedAppBar"
+            app:collapsedTitleTextAppearance="@style/CollapsedAppBar">
 
            <android.support.v7.widget.Toolbar
                android:layout_width="match_parent"
@@ -39,7 +41,7 @@
                     android:id="@+id/aaThumbnail"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:background="@drawable/logo"
+                    android:background="@color/colorTitle"
                     android:contentDescription="@string/productimage" />
 
                 <LinearLayout
