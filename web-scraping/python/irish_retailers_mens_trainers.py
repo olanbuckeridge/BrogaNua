@@ -94,7 +94,7 @@ while retailer_no < 5:
                 else:
                     img_url = img['src']
 
-                link_container = container.findAll("a", {"class":"thumb-link thumb-quick-buy"})
+                link_container = container.findAll("a", {"class":"quickbuy"})
                 prod_url = link_container[0]['href']
 
                 retailer = "Life Style Sports"
@@ -137,7 +137,7 @@ while retailer_no < 5:
                 current_price = price_container[0].find("span").text.strip()
                 pricing = current_price.split("\n")[1].strip("€")
                 price_eur = pricing.strip("EUR")
-                price = price_eur.strip()
+                price = "€"+ price_eur.strip()
 
                 image_container = container.findAll("div", {"class":"supports-js"})
                 img = image_container[0].find("img")
