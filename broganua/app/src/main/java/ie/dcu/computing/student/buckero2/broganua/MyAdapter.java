@@ -34,7 +34,28 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.catalog_card_view, viewGroup ,false));
+
+        View view;
+        LayoutInflater inflater = LayoutInflater.from(context);
+        view = inflater.inflate(R.layout.catalog_card_view, viewGroup, false);
+        final MyViewHolder viewHolder = new MyViewHolder(view);
+        viewHolder.image.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, ProductActivity.class);
+
+                i.putExtra("brand",products.get(viewHolder.getAdapterPosition()).getBrand());
+                i.putExtra("model",products.get(viewHolder.getAdapterPosition()).getModel());
+                i.putExtra("price",products.get(viewHolder.getAdapterPosition()).getPrice());
+                i.putExtra("image",products.get(viewHolder.getAdapterPosition()).getImage());
+                i.putExtra("link",products.get(viewHolder.getAdapterPosition()).getLink());
+
+                context.startActivity(i);
+            }
+        });
+
+        return viewHolder;
     }
 
     @Override
