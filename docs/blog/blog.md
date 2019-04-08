@@ -88,3 +88,35 @@ Once the database is functional, I will be focusing on connecting to the applica
 There is a lot to do in the next few weeks but I’m optimistic after speaking to Gareth that I am on track to get the application completed.
 
 
+<h1><b>Building my Database – LSS</b></h1>
+
+![Code](https://olanca400.files.wordpress.com/2019/04/lss_scrape.png)
+
+
+I have began building my database starting with scraping data from the Irish retailer ‘Life Style Sports’.
+
+This is my first time crawling and scraping websites so I had to build a few test programs to fully understand where to find the information I’m looking for and selecting what data I want in my database.
+
+I am using Python 3.7 with the BeautifulSoup module to retrieve the information from the websites. The data I am grabbing as seen in the code is: Brand, Model, Price,Image and Retailer.
+
+<h1><b>Building my Database – BT</b></h1>
+
+![Code](https://olanca400.files.wordpress.com/2019/04/bt_scrape.png)
+
+After successfully completing my 'Life Style Sports' web scrape, I decided to focus on 'Brown Thomas'.
+
+The structure of the website was quite similar to the 'Life Style Sports' website therefore it was quite easy to grab the same data required to populate the database.
+
+It was much easier to extract the model information and the images as the information was defined clearly in the the Javascript and there was less formatting required.
+
+<h1><b>Building my Database – Nowhere</b></h1>
+
+![Code](https://olanca400.files.wordpress.com/2019/04/nowhere_scrape.png)
+
+As before with the 'Life Style Sports' and 'Brown Thomas' data. It was a similar process to scrape from 'Nowhere'.
+
+There were two issues I had with retrieving information:
+
+1. There is no structure for the brand and model text. The whole product name is one string. I had to format the text in order to extract the Brand and Model separately. Once I had the model it required further formatting for particular cases.
+
+2. Another issue I had was with scraping the product images. They use Shopify as their web platform where the images are all stored on their servers. The images also have different resolutions therefore I was able to format the image URL to retrieve the quality I want to display.
