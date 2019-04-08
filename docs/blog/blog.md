@@ -45,7 +45,7 @@ I now have my GitLab up and running between the two devices and have started to 
 
 Exams are starting to get close and my focus is drawn to them but I decided to try and begin development as I don’t want to fall too far behind schedule.
 
-![App Drawer](https://olanca400.files.wordpress.com/2019/01/App-Drawer.jpeg)
+![App Drawer](https://olanca400.files.wordpress.com/2019/01/App-Drawer.jpeg?w=1200&h=800)
 
 I started off by adding a basic app drawer to navigate between different activities. This allows me to further develop each section. I have been working on the Back-End trying to work on web scraping but it’s nice to take a break and see some visual improvements on the Front-End from time to time.
 
