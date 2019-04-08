@@ -49,6 +49,10 @@ while retailer_no < 5:
 
             price_container = container.findAll("span", {"class":"product-sales-price"})
             price = price_container[0].text.strip()
+            if ',' in price:
+                price = price.replace(",","")
+            elif 'Now' in price:
+                price = price.replace("Now €","")
 
             image_container = container.findAll("img", {"class":"js-product-image-img"})
             img_url = image_container[0]['src']
@@ -62,7 +66,7 @@ while retailer_no < 5:
                 'brand': brand,
                 'model': model,
                 'retailer': retailer,
-                'price': price,
+                'price': float(price.strip("€")),
                 'image': img_url,
                 'link': prod_url
             })
@@ -113,7 +117,7 @@ while retailer_no < 5:
                     'brand': brand,
                     'model': model,
                     'retailer': retailer,
-                    'price': price,
+                    'price': float(price.strip("€")),
                     'image': img_url,
                     'link': prod_url
                 })
@@ -148,7 +152,7 @@ while retailer_no < 5:
                 current_price = price_container[0].find("span").text.strip()
                 pricing = current_price.split("\n")[1].strip("€")
                 price_eur = pricing.strip("EUR")
-                price = "€"+ price_eur.strip()
+                price = price_eur.strip()
 
                 image_container = container.findAll("div", {"class":"supports-js"})
                 img = image_container[0].find("img")
@@ -163,7 +167,7 @@ while retailer_no < 5:
                     'brand': brand,
                     'model': model,
                     'retailer': retailer,
-                    'price': price,
+                    'price': float(price),
                     'image': img_url,
                     'link': prod_url
                 })
@@ -214,7 +218,7 @@ while retailer_no < 5:
                 'brand': brand,
                 'model': model,
                 'retailer': retailer,
-                'price': price,
+                'price': float(price.strip("€")),
                 'image': img_url,
                 'link': prod_url
             })

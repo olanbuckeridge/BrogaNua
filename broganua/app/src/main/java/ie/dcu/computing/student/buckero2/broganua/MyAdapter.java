@@ -65,7 +65,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
         myViewHolder.brand.setText(products.get(i).getBrand());
         myViewHolder.model.setText(products.get(i).getModel());
-        myViewHolder.price.setText(products.get(i).getPrice());
+        myViewHolder.price.setText("€"+products.get(i).getPrice());
         myViewHolder.onClick(i);
         Picasso.get().load(products.get(i).getImage()).into(myViewHolder.image);
     }

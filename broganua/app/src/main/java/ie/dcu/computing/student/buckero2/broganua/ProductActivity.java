@@ -50,7 +50,7 @@ public class ProductActivity extends AppCompatActivity {
 
         String brand  = getIntent().getExtras().getString("brand");
         final String model = getIntent().getExtras().getString("model");
-        String price = getIntent().getExtras().getString("price") ;
+        String price = "€" + getIntent().getExtras().getDouble("price") ;
         String image_url = getIntent().getExtras().getString("image") ;
 
         // ini views
@@ -94,6 +94,7 @@ public class ProductActivity extends AppCompatActivity {
                     Products p = dataSnapshot1.getValue(Products.class);
                     productsList.add(p);
                 }
+                Collections.sort(productsList, new PriceSorter());
                 adapter = new MyAdapter(ProductActivity.this, productsList);
                 adapter.getFilter().filter(model);
                 productsRecyclerView.setAdapter(adapter);

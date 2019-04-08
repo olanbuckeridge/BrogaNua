@@ -1,10 +1,12 @@
 package ie.dcu.computing.student.buckero2.broganua;
 
+import java.util.Comparator;
+
 public class Products{
 
     private String brand;
     private String model;
-    private String price;
+    private double price;
     private String retailer;
     private String image;
     private String link;
@@ -12,7 +14,7 @@ public class Products{
 
     }
 
-    public Products(String brand, String model, String price, String retailer, String image, String link) {
+    public Products(String brand, String model, double price, String retailer, String image, String link) {
         this.brand = brand;
         this.model = model;
         this.price = price;
@@ -22,6 +24,7 @@ public class Products{
 
 
     }
+
 
     public String getBrand() {
         return brand;
@@ -39,11 +42,11 @@ public class Products{
         this.model = model;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
