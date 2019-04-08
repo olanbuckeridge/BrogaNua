@@ -120,3 +120,96 @@ There were two issues I had with retrieving information:
 1. There is no structure for the brand and model text. The whole product name is one string. I had to format the text in order to extract the Brand and Model separately. Once I had the model it required further formatting for particular cases.
 
 2. Another issue I had was with scraping the product images. They use Shopify as their web platform where the images are all stored on their servers. The images also have different resolutions therefore I was able to format the image URL to retrieve the quality I want to display.
+
+<h1><b>Building my Database – Elverys</b></h1>
+
+![Code](https://olanca400.files.wordpress.com/2019/04/elverys_scrape.png)
+
+‘Elverys’ was the last retailer I looked at while finalising my database.
+
+For the most part, structurally the website was similar to ‘Life Style Sports’. The only issue I had with this retailer was yet again, the model. I had to create a list of all the brands that are stocked at ‘Elverys’ and format the models based on brands and strip the excess information in order to conform with the rest of the database.
+
+<h1><b>MySQL – Database</b></h1>
+
+![Code](https://olanca400.files.wordpress.com/2019/04/mysql.png?w=770)
+
+Now that I have all the retailer information that I require, I am storing the data in a MySQL database.
+
+Currently the data is stored locally on my desktop computer but the plan is to host the database on Amazon Web Services so that the information can be accessed without relying on my desktop running 24/7
+
+<h1><b>Switching MySQL to Firebase</b></h1>
+
+![Code](https://olanca400.files.wordpress.com/2019/04/firebase-products.png)
+
+This last week was spent trying to connect my MySQL database to my android application in order to display the information and build my catalogue.
+
+Authentication for the application is stored and run through Firebase so I decided to host my database on Firebase too. It is structured slightly differently to MySQL but after reading the documentation it took a day or two to switch my python programs to store the information on my Firebase.
+
+I think that this option will work better with the Android application and the documentation provided is a lot more comprehensive for my use case.
+
+<h1><b>Working Catalogue!</b></h1>
+
+![Code](https://olanca400.files.wordpress.com/2019/04/screenshot_20190329-212754.jpg?w=381)
+
+Since switching to Firebase, I have been able to get a basic catalogue working.
+
+The python program is extracting the information for the database. The Android app is then retrieving the information from the Firebase and displaying the information using a RecyclerView. The Brand, Model and Price are displayed in TextViews and the ImageURL is displayed on the right with an ImageView.
+
+There is a lot of work to be done on the Front-End but I am delighted that I can finally see some of the hard work displayed.
+
+<h1><b>Working on the Limited Releases</b></h1>
+
+![Code](https://olanca400.files.wordpress.com/2019/04/insta_scrape.png)
+
+After connecting the Firebase to the application and having a basic functioning catalogue, I decided to work on the Limited Releases section.
+
+The idea behind this section is to retrieve the products that are limited, find out where to purchase them, when and how.
+
+There are two retailers that have access to limited sneakers in Ireland, Brown Thomas and Nowhere. Since these releases are limited – they never reach the websites and are strictly in-store. They release information on how to purchase theses sneakers through their Instagram channels.
+
+I am using Python 3.7 with the Instaloader module to retrieve the information.
+
+<h1><b>Limited Releases - Functional</b></h1>
+
+![Code](https://olanca400.files.wordpress.com/2019/04/screenshot_20190403-073357.jpg?w=381)
+
+The information from the python program is being stored on Firebase for the limited releases. I have used a similar RecyclerView setup as in the Catalogue section to display the information regarding the releases.
+
+As you can see on the left hand side it displays the profile that the information is from along with the information on how to purchase the sneakers. On the right hand side you can see the image of the sneakers that will be releasing.
+
+I need to refine the information that I am extracting, for example I need to filter out events which can be seen above.
+
+<h1><b>Refining Catalogue – Search & Colours</b></h1>
+
+![Code](https://olanca400.files.wordpress.com/2019/04/screenshot_20190408-103730.jpg?w=381)
+
+Once I got the functionality of the Limited Releases working, my focus has turned on refining the catalogue section of the application.
+
+I changed the colour scheme so that the images and text look a lot cleaner in the application. I also changed the alignment and spacing of the image, text and button.
+
+![Code](https://olanca400.files.wordpress.com/2019/04/search.png?w=770)
+
+Adding Search functionality of the database was very important for navigation and user experience. It took a few days to get this up and running as I was having issues retrieving filtered search list and displaying the information in the application.
+
+<h1><b>Database – Structure</b></h1>
+
+![Code](https://olanca400.files.wordpress.com/2019/04/firebase.png?w=770)
+
+Currently the structure of the Firebase Database is split into three different sections. Limited Releases, Products and Users.
+
+Limited Releases are populated using Python to extract data from Instagram such as Images and Information about new releases.
+
+Products are populated using Python to extract data from Irish retailers such as Brown Thomas, Life Style Sports, Elverys and Nowhere. This area stores the Brand, Model, Price, URL, Image etc.
+
+Users are populated from within the Android application when the users are signing up or editing their profile.
+
+<h1><b>Scheduling – Updating Catalogue</b></h1>
+
+![Code](https://olanca400.files.wordpress.com/2019/04/task.png?w=770)
+
+I am using Windows Task Scheduler to run my python program daily at 08:00.
+
+This was setup in order to provide up to date information in the catalogue for the users regarding new releases or if products sold out.
+
+By setting this up, it allows me not to worry about running the program myself to repopulate the database everyday.
+
