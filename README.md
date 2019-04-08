@@ -1,6 +1,6 @@
 # Bróga Nua
 
-An Irish Sneaker Android Application.
+Bróga Nua - An Irish Sneakers E-Commerce Application
 
 ## Additional Resources
 
