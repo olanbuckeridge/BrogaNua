@@ -60,7 +60,7 @@ It took a while but I now have registration, login, email verification, forgot p
 
 You can see the current registration screen below which allows users to enter their: Name, Email, Password, Shoe Size and Profile Picture. This is all stored in a database on Firebase.
 
-![Registration](https://olanca400.files.wordpress.com/2019/02/screenshot_20190218-155032.jpg?w=1200&h=800)
+![Registration](https://olanca400.files.wordpress.com/2019/02/screenshot_20190218-155032.jpg?w=381&h=804)
 
 
 <h1><b>User Profile V1</b></h1>
