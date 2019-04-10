@@ -62,7 +62,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="scalingPercent" value="68" />
+                                                <entry key="scalingPercent" value="82" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -73,7 +73,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundLayerName" value="ic_launcher_background" />
-                                      <entry key="foregroundImage" value="D:\Photos\CA400\Icon.png" />
+                                      <entry key="foregroundImage" value="D:\Photos\CA400\minimal-icon.png" />
                                       <entry key="foregroundLayerName" value="launcher_icon" />
                                       <entry key="outputName" value="logo" />
                                     </map>
