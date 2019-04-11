@@ -93,28 +93,7 @@ public class CatalogFragment extends Fragment {
                 return false;
             }
 
-/*
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
-                return false;
-            }*/
         });
     }
-/*
-    @Override
-    public boolean onMenuItemActionExpand(MenuItem item) {
-        return true;
-    }
 
-    @Override
-    public boolean onMenuItemActionCollapse(MenuItem item) {
-        adapter.setFilter(productsList);
-        return true;
-    }*/
 }
