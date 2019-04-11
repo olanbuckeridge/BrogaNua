@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Filterable;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -25,9 +24,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
-public class CatalogFragment extends Fragment {
+public class CatalogueFragment extends Fragment {
 
     DatabaseReference reference;
     RecyclerView recyclerView;
@@ -39,7 +37,7 @@ public class CatalogFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_catalog, container, false);
+        View view = inflater.inflate(R.layout.fragment_catalogue, container, false);
         setHasOptionsMenu(true);
 
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);

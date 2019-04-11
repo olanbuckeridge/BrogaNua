@@ -31,8 +31,8 @@ public class ProductActivity extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
     RecyclerView productsRecyclerView;
-    ArrayList<Products> productsList;
-    ArrayList<Products> productsListFull;
+    //ArrayList<Products> productsList;
+    //ArrayList<Products> productsListFull;
     MyAdapter adapter;
 
     @Override
@@ -52,6 +52,7 @@ public class ProductActivity extends AppCompatActivity {
         final String model = getIntent().getExtras().getString("model");
         String price = "€" + getIntent().getExtras().getDouble("price") ;
         String image_url = getIntent().getExtras().getString("image") ;
+        ArrayList<Products> productsList = (ArrayList<Products>)getIntent().getExtras().getSerializable("productsList");
 
         // ini views
 
@@ -85,8 +86,13 @@ public class ProductActivity extends AppCompatActivity {
 
         productsRecyclerView = findViewById(R.id.productsRecycler);
         productsRecyclerView.setLayoutManager(new LinearLayoutManager(ProductActivity.this));
-        productsList = new ArrayList<Products>();
-        reference = FirebaseDatabase.getInstance().getReference().child("products");
+        Collections.sort(productsList, new PriceSorter());
+        adapter = new MyAdapter(ProductActivity.this, productsList);
+        adapter.getFilter().filter(model);
+        productsRecyclerView.setAdapter(adapter);
+
+        //productsList = new ArrayList<Products>();
+        /*reference = FirebaseDatabase.getInstance().getReference().child("products");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -104,7 +110,7 @@ public class ProductActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(ProductActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
-        });
+        }); */
 
     }
 }

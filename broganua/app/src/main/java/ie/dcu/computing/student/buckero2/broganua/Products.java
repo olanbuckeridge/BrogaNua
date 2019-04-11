@@ -1,8 +1,9 @@
 package ie.dcu.computing.student.buckero2.broganua;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class Products{
+public class Products implements Serializable {
 
     private String brand;
     private String model;

@@ -14,13 +14,13 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> implements Filterable {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> implements Filterable, Serializable {
 
     Context context;
     ArrayList<Products> products;
@@ -38,7 +38,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
 
         View view;
         LayoutInflater inflater = LayoutInflater.from(context);
-        view = inflater.inflate(R.layout.catalog_card_view, viewGroup, false);
+        view = inflater.inflate(R.layout.catalogue_card_view, viewGroup, false);
         final MyViewHolder viewHolder = new MyViewHolder(view);
         viewHolder.progressBar.setVisibility(View.INVISIBLE);
         viewHolder.image.setOnClickListener(new View.OnClickListener(){
@@ -47,6 +47,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
             public void onClick(View v) {
                 Intent i = new Intent(context, ProductActivity.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.putExtra("productsList",products);
                 i.putExtra("brand",products.get(viewHolder.getAdapterPosition()).getBrand());
                 i.putExtra("model",products.get(viewHolder.getAdapterPosition()).getModel());
                 i.putExtra("price",products.get(viewHolder.getAdapterPosition()).getPrice());
@@ -54,7 +55,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
                 i.putExtra("link",products.get(viewHolder.getAdapterPosition()).getLink());
 
                 context.startActivity(i);
-
             }
         });
 
