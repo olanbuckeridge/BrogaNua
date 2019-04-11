@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="user_category"
+        android:title="USER">
+
+        <EditTextPreference
+            android:dialogTitle="Your name"
+            android:dialogMessage="Enter your full name"
+            android:inputType="textCapWords"
+            android:key="key_full_name"
+            android:title="Name"
+            android:summary="Full Name">
+
+        </EditTextPreference>
+
+        <EditTextPreference
+            android:dialogTitle="Your email"
+            android:dialogMessage="Enter your email"
+            android:inputType="textEmailAddress"
+            android:key="key_email"
+            android:title="Email"
+            android:summary="info@broganua.ie">
+
+        </EditTextPreference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="CATALOGUE">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="enable_curated_catalogue"
+            android:title="Curate Catalogue"
+            android:summary="Show brands I am interested in"/>
+
+        <MultiSelectListPreference
+            android:dialogTitle="Select all your preferences"
+            android:dependency="enable_curated_catalogue"
+            android:key="key_sportswear_brands"
+            android:title="Sportswear Brands"
+            android:summary="Favourite sportswear brands"
+            android:entries="@array/sportswear_brands"
+            android:entryValues="@array/sportswear_brands_values"/>
+
+        <MultiSelectListPreference
+            android:dialogTitle="Select all your preferences"
+            android:dependency="enable_curated_catalogue"
+            android:key="key_luxury_brands"
+            android:title="Luxury Brands"
+            android:summary="Favourite luxury brands"
+            android:entries="@array/luxury_brands"
+            android:entryValues="@array/luxury_brands_values"/>
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="LIMITED RELEASES">
+
+        <SwitchPreference
+            android:key="enable_notification_limited_releases"
+            android:editable="true"
+            android:title="Push Notifications"
+            android:summary="Notifications regarding new releases"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

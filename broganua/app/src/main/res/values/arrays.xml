@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="sportswear_brands">
+        <item>Nike</item>
+        <item>adidas Originals</item>
+        <item>Puma</item>
+        <item>New Balance</item>
+        <item>Vans</item>
+        <item>Converse</item>
+        <item>Reebok</item>
+        <item>Timberland</item>
+    </string-array>
+
+    <string-array name="sportswear_brands_values">
+        <item>Nike</item>
+        <item>adidas Originals</item>
+        <item>Puma</item>
+        <item>New Balance</item>
+        <item>Vans</item>
+        <item>Converse</item>
+        <item>Reebok</item>
+        <item>Timberland</item>
+    </string-array>
+
+    <string-array name="luxury_brands">
+        <item>Alexander McQueen</item>
+        <item>Axel Arigato</item>
+        <item>Balenciaga</item>
+        <item>Burberry</item>
+        <item>Common Projects</item>
+        <item>Dolce &amp; Gabbana</item>
+        <item>Giuseppe Zanotti</item>
+        <item>Givenchy</item>
+        <item>Gucci</item>
+        <item>Mallet</item>
+        <item>Moncler</item>
+        <item>OFF-WHITE</item>
+        <item>Paul Smith</item>
+        <item>Valentino Garavani</item>
+    </string-array>
+
+    <string-array name="luxury_brands_values">
+        <item>Alexander McQueen</item>
+        <item>Axel Arigato</item>
+        <item>Balenciaga</item>
+        <item>Burberry</item>
+        <item>Common Projects</item>
+        <item>Dolce &amp; Gabbana</item>
+        <item>Giuseppe Zanotti</item>
+        <item>Givenchy</item>
+        <item>Gucci</item>
+        <item>Mallet</item>
+        <item>Moncler</item>
+        <item>OFF-WHITE</item>
+        <item>Paul Smith</item>
+        <item>Valentino Garavani</item>
+    </string-array>
+
+</resources>

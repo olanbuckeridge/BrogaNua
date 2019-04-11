@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +34,7 @@ public class ProfileFragment extends Fragment {
 
     private TextView profileName, profileAge, profileEmail, profileShoeSize;
     private Button profileEditButton, passwordChange;
+    private ImageButton settingsButton;
     private ImageView profilePic;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
@@ -44,6 +46,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+
         profileName = (TextView)view.findViewById(R.id.etProfileName);
         profileAge = (TextView)view.findViewById(R.id.etProfileAge);
         profileEmail = (TextView)view.findViewById(R.id.etProfileEmail);
@@ -51,6 +54,8 @@ public class ProfileFragment extends Fragment {
         profileEditButton = (Button)view.findViewById(R.id.buttonProfileUpdate);
         profilePic = (ImageView)view.findViewById(R.id.ivProfilePic);
         passwordChange = (Button)view.findViewById(R.id.buttonPasswordChange);
+        settingsButton = (ImageButton)view.findViewById(R.id.settingsBtn);
+
         Log.d(TAG, "onCreateView: started.");
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -99,6 +104,12 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), SettingsActivity.class));
+            }
+        });
 
 
 

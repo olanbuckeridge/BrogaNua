@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ProductActivity"></activity>
+        <activity android:name=".ProductActivity" />
         <activity android:name=".UpdatePasswordActivity" />
         <activity android:name=".UpdateProfileActivity" />
         <activity
@@ -38,6 +38,7 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.noActionBar" />
+        <activity android:name=".SettingsActivity" />
     </application>
 
 </manifest>
