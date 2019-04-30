@@ -2,11 +2,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item android:id="@+id/action_sort"
+        android:icon="@drawable/ic_sort"
+        android:title="Sort by"
+        app:showAsAction="ifRoom">
+
+        <menu>
+            <item android:id="@+id/action_cheapest"
+                android:title="Low - High" />
+
+            <item android:id="@+id/action_discovery"
+                android:title="Discover" />
+
+            <item android:id="@+id/action_retailer"
+                android:title="Retailer" />
+        </menu>
+
+    </item>
+
     <item android:id="@+id/action_search"
         android:icon="@drawable/ic_search"
         android:title="@string/app_name"
         app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="android.support.v7.widget.SearchView" />
+
 
 
 </menu>

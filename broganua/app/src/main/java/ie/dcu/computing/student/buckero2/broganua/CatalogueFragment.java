@@ -1,9 +1,11 @@
 package ie.dcu.computing.student.buckero2.broganua;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -24,8 +26,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class CatalogueFragment extends Fragment {
+public class CatalogueFragment extends Fragment{
 
     DatabaseReference reference;
     RecyclerView recyclerView;
@@ -33,6 +36,7 @@ public class CatalogueFragment extends Fragment {
     ArrayList<Products> productsListFull;
     MyAdapter adapter;
     ProgressBar progressBar;
+    Context context;
 
     @Nullable
     @Override
@@ -94,4 +98,24 @@ public class CatalogueFragment extends Fragment {
         });
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_cheapest:
+                Collections.sort(productsList, new PriceSorter());
+                adapter = new MyAdapter(context, productsList);
+                recyclerView.setAdapter(adapter);
+
+            case R.id.action_discovery:
+                Collections.shuffle(productsList);
+                adapter = new MyAdapter(getContext(), productsList);
+                recyclerView.setAdapter(adapter);
+
+            case R.id.action_retailer:
+                adapter = new MyAdapter(getContext(), productsList);
+                recyclerView.setAdapter(adapter);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }
