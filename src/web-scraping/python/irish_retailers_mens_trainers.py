@@ -53,6 +53,8 @@ while retailer_no < 5:
                 price = price.replace(",","")
             elif 'Now' in price:
                 price = price.replace("Now €","")
+            elif 'from' in price:
+                price = price.replace("from €","")
 
             image_container = container.findAll("img", {"class":"js-product-image-img"})
             img_url = image_container[0]['src']
