@@ -46,7 +46,7 @@ public class ProductActivity extends AppCompatActivity {
         // hide the default actionbar
         getSupportActionBar().hide();
 
-        // Receive data
+        // Receive Product from Catalogue fragment
 
         String brand  = getIntent().getExtras().getString("brand");
         final String model = getIntent().getExtras().getString("model");
@@ -83,34 +83,13 @@ public class ProductActivity extends AppCompatActivity {
 
         Picasso.get().load(image_url).into(img);
 
-
+        // Display filtered product list.
         productsRecyclerView = findViewById(R.id.productsRecycler);
         productsRecyclerView.setLayoutManager(new LinearLayoutManager(ProductActivity.this));
         Collections.sort(productsList, new PriceSorter());
         adapter = new MyAdapter(ProductActivity.this, productsList);
         adapter.getFilter().filter(model);
         productsRecyclerView.setAdapter(adapter);
-
-        //productsList = new ArrayList<Products>();
-        /*reference = FirebaseDatabase.getInstance().getReference().child("products");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                    Products p = dataSnapshot1.getValue(Products.class);
-                    productsList.add(p);
-                }
-                Collections.sort(productsList, new PriceSorter());
-                adapter = new MyAdapter(ProductActivity.this, productsList);
-                adapter.getFilter().filter(model);
-                productsRecyclerView.setAdapter(adapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(ProductActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
-            }
-        }); */
 
     }
 }

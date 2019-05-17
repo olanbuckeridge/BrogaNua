@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="#4a4a4a">
 
     <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
         android:id="@+id/tbEnterName"
+        app:primaryColor="@color/colorTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -23,10 +25,12 @@
         app:layout_constraintTop_toBottomOf="@+id/logoIV"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.325"
-        app:useDenseSpacing="false">
+        app:useDenseSpacing="false"
+        >
 
         <studio.carbonylgroup.textfieldboxes.ExtendedEditText
             android:id="@+id/enterName"
+            app:primaryColor="@color/colorTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -50,6 +54,7 @@
 
     <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
         android:id="@+id/tbEnterPassword"
+        app:primaryColor="@color/colorTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -69,6 +74,7 @@
 
         <studio.carbonylgroup.textfieldboxes.ExtendedEditText
             android:id="@+id/enterPassword"
+            app:primaryColor="@color/colorTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -102,6 +108,7 @@
         android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.768"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tbEnterPassword"
         app:layout_constraintVertical_bias="0.19" />
@@ -123,7 +130,7 @@
         app:layout_constraintTop_toBottomOf="@+id/loginButton"
         app:layout_constraintVertical_bias="0.29000002" />
 
-    <TextView
+    <Button
         android:id="@+id/tvRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -133,16 +140,17 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/newUserRegister"
-        android:textSize="20sp"
+        android:text="Sign Up"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/loginButton"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvInfo"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintTop_toBottomOf="@+id/tbEnterPassword"
+        app:layout_constraintVertical_bias="0.19" />
 
     <TextView
         android:id="@+id/tvPassReset"
+        android:textColor="@color/colorTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

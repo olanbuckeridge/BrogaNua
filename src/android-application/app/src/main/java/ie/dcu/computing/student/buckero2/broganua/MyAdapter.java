@@ -81,12 +81,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
     public Filter getFilter() {
         return testFilter;
     }
-
     private Filter testFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
             ArrayList<Products> filteredList = new ArrayList<>();
-
             if (constraint == null || constraint.length() == 0){
                 filteredList.addAll(productsFull);
             } else {
@@ -98,13 +96,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
                     }
                 }
             }
-
             FilterResults results = new FilterResults();
             results.values = filteredList;
-
             return results;
         }
-
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
             products.clear();

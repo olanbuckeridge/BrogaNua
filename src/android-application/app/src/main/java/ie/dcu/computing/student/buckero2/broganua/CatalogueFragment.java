@@ -33,7 +33,6 @@ public class CatalogueFragment extends Fragment{
     DatabaseReference reference;
     RecyclerView recyclerView;
     ArrayList<Products> productsList;
-    ArrayList<Products> productsListFull;
     MyAdapter adapter;
     ProgressBar progressBar;
     Context context;
@@ -44,12 +43,15 @@ public class CatalogueFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_catalogue, container, false);
         setHasOptionsMenu(true);
 
+        // Load and display products
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
         recyclerView = (RecyclerView) view.findViewById(R.id.catalogRecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         productsList = new ArrayList<Products>();
 
+
+        // Retrieve products from Firebase.
         reference = FirebaseDatabase.getInstance().getReference().child("products");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -101,17 +103,8 @@ public class CatalogueFragment extends Fragment{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_cheapest:
-                Collections.sort(productsList, new PriceSorter());
-                adapter = new MyAdapter(context, productsList);
-                recyclerView.setAdapter(adapter);
-
             case R.id.action_discovery:
                 Collections.shuffle(productsList);
-                adapter = new MyAdapter(getContext(), productsList);
-                recyclerView.setAdapter(adapter);
-
-            case R.id.action_retailer:
                 adapter = new MyAdapter(getContext(), productsList);
                 recyclerView.setAdapter(adapter);
         }

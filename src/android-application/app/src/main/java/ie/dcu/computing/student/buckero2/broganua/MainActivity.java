@@ -80,15 +80,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_news:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NewsFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ReleasesFragment()).commit();
                 break;
 
             case R.id.nav_profile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
-                break;
-
-            case R.id.nav_share:
-                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.nav_logout:

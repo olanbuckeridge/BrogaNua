@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class NewsFragment extends Fragment {
+public class ReleasesFragment extends Fragment {
     /*
     @Nullable
     @Override
@@ -37,10 +37,12 @@ public class NewsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_news, container, false);
 
+        // Load and display products
         recyclerView = (RecyclerView) view.findViewById(R.id.newsRecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         releasesList = new ArrayList<Releases>();
 
+        // Retrieve products from Firebase.
         reference = FirebaseDatabase.getInstance().getReference().child("limited_releases");
         reference.addValueEventListener(new ValueEventListener() {
             @Override

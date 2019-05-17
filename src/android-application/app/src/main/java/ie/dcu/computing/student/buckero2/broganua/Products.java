@@ -22,8 +22,6 @@ public class Products implements Serializable {
         this.retailer = retailer;
         this.image = image;
         this.link = link;
-
-
     }
 
 

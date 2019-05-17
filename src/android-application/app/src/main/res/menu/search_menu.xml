@@ -8,14 +8,8 @@
         app:showAsAction="ifRoom">
 
         <menu>
-            <item android:id="@+id/action_cheapest"
-                android:title="Low - High" />
-
             <item android:id="@+id/action_discovery"
                 android:title="Discover" />
-
-            <item android:id="@+id/action_retailer"
-                android:title="Retailer" />
         </menu>
 
     </item>

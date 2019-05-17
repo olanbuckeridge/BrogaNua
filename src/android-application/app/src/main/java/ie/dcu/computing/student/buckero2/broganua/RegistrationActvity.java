@@ -31,8 +31,6 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 
-import static java.security.AccessController.getContext;
-
 public class RegistrationActvity extends AppCompatActivity {
 
     private EditText userName;
@@ -67,7 +65,7 @@ public class RegistrationActvity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration_actvity);
+        setContentView(R.layout.activity_registration);
         setupUIViews();
 
         firebaseAuth = FirebaseAuth.getInstance();
