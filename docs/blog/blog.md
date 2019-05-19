@@ -213,3 +213,73 @@ This was setup in order to provide up to date information in the catalogue for t
 
 By setting this up, it allows me not to worry about running the program myself to repopulate the database everyday.
 
+<h1><b>Testing – Python</b></h1>
+
+To ensure the back-end was running smoothly and there were no errors while building the database, I performed integration testing with Python.
+
+These tests were used to ensure that the data could be retrieved from retailers. Using BeautifulSoup module for Python, I was able to open up connections to the websites of each retailer. Providing the information was accessible, I would be able to begin web-scraping and write the information to the database.
+
+![Code](https://olanca400.files.wordpress.com/2019/05/tests.png?w=1200&h=800)
+
+def testLifeStyleSports():
+  try:
+      # opening up connection, grabbing the page
+      uClient = uReq("https://www.lifestylesports.com/ie/mens-trainers/?sz=72&start=0")
+      page_html = uClient.read()
+      uClient.close()
+      print ("Connection to Life Style Sports successful.")
+  except:
+      print ("Connection to Life Style Sports unsuccessful.")
+
+<h1><b>Testing – Android</b></h1>
+
+For UI testing, I used Espresso framework in Android Studio. These tests must be completed on an Android device (physical/emulator) and therefore can be quite slow. The test are very useful for ensuring the functionality and navigation of the application is correct.
+
+These tests validate the following functionality:
+
+Login
+Registration
+Profile Update
+Password Update
+Forgotten Password
+Main Activity (Catalogue & Limited Releases)
+
+
+public class LoginTest {
+
+  @Rule
+  public final ActivityTestRule<LoginActivity> main = new ActivityTestRule<>(LoginActivity.class);
+
+  @Test
+  public void textView(){
+      onView(withId(R.id.tvPassReset)).check( matches(isDisplayed()));
+      onView(withId(R.id.tvInfo)).check( matches(isDisplayed()));
+
+  }
+
+  @Test
+  public void checkLoginActivityPage() {
+      onView(withId(R.id.tvPassReset)).check( matches(withText("Forgot Password?")));
+      onView(withId(R.id.tvInfo)).check( matches(withText("No. of attempts remaining: 5")));
+  }
+
+  @Test
+  public void btnclickable(){
+      onView(withId(R.id.loginButton)).check(matches(isEnabled()));
+  }
+}
+Here is an example of one of the defined UI tests. Before the test is ran, the login activity is opened. One it is open the layout of the UI is set up. It will then test different views:
+
+Incorrect attempts
+Forgot Password
+Clickable Buttons
+Ensure it is the Login Screen
+
+Below in an example of the test completion logs. Tests were all ran on my OnePlus 6 device running Android SDK 28 (9.0 Pie).
+
+<h1><b>Finishing Touches - Front End</b></h1>
+
+As the semester comes to a close, I have been able to focus on working on a bit more front-end work. 
+I am trying to polish off the User Interface to ensure a great experience for the user.
+
+![Code](https://olanca400.files.wordpress.com/2019/05/front-end.png?w=770)
