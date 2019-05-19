@@ -15,20 +15,24 @@ ref = db.reference('/products')
 ref.set('empty')
 
 products = 1
-
 retailer_no = 1
 
 while retailer_no < 5:
     if retailer_no == 1:
+        # opening up connection, grabbing the page
         uClient = uReq("https://www.brownthomas.com/men/shoes/trainers/?sz=300&productsearch=true&start=0&format=page-element&viewall=true")
         page_html = uClient.read()
         uClient.close()
+        # html parsing
         page_soup = soup(page_html, "html.parser")
+        # grabs each product
         containers = page_soup.findAll("li", {"class":"grid-tile"})
         for container in containers:
             item_ref = db.reference('/products/{}'.format(products))
+            # Brand Container		
             brand_container = container.findAll("span", {"class":"product-brand"})
             brand = brand_container[0].text.strip()
+            # Model Container
             model_container = container.findAll("span", {"class":"product-name name-link"})
             model = model_container[0].text.strip()
             if brand == 'NIKE' or brand == 'ADIDAS ORIGINALS':
@@ -36,7 +40,7 @@ while retailer_no < 5:
                     model = model.replace('Trainers','')
                 elif 'Trainer' in model:
                     model = model.replace('Trainer','')
-
+            # Price Container
             price_container = container.findAll("span", {"class":"product-sales-price"})
             price = price_container[0].text.strip()
             if ',' in price:
@@ -45,10 +49,10 @@ while retailer_no < 5:
                 price = price.replace("Now €","")
             elif 'from' in price:
                 price = price.replace("from €","")
-
+            # Image Container    
             image_container = container.findAll("img", {"class":"js-product-image-img"})
             img_url = image_container[0]['src']
-
+            # Link Container
             url_container = container.findAll("a", {"class":"thumb-link js-thumb-link js-product-url"})
             prod_url = url_container[0]['href']
 

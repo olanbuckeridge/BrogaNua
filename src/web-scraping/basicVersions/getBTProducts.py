@@ -13,13 +13,6 @@ firebase_admin.initialize_app(cred, {
 })
 ref = db.reference('/products')
 
-'''import pymysql
-
-conn = pymysql.connect(host='mydbproducts.cnu1e4enw5kt.eu-west-1.rds.amazonaws.com', port=3306, user='olanbuckeridge', passwd='r9mtj6ta', db='mydbproducts')
-
-cur = conn.cursor()
-cur.execute("SELECT * FROM products")'''
-
 # Opening connection, grabbing the page
 items = 0
 i = 1
@@ -31,9 +24,6 @@ while items < 265:
 
     containers = page_soup.findAll("li", {"class":"grid-tile"})
     image_containers = page_soup.findAll("img")
-    #for image_tag in image_containers:
-    #    print (image_tag['src'])
-    #img_url = image_containers.get("src")
 
     for container in containers:
         item_ref = db.reference('/products/brown_thomas/{}'.format(i))
@@ -46,14 +36,6 @@ while items < 265:
         image_container = container.findAll("img", {"class":"js-product-image-img"})
         img_url = image_container[0]['src']
         retailer = 'Brown Thomas'
-        #img_url = image_container[0].text.strip()
-        '''print ("BRAND:",brand)
-        print ("MODEL:",model)
-        print ("PRICE:",price)
-        print ("IMAGE:",img_url)
-        print ("**************************")'''
-        #cur.execute("INSERT INTO products (brand, model, retailer, price, images) VALUES (\"%s\", \"%s\", \"%s\", \"%s\", \"%s\")", (brand, model, retailer, price.strip("€"), img_url))
-        #cur.connection.commit()
         item_ref.set ({
             'brand': brand,
             'model': model,
@@ -63,5 +45,4 @@ while items < 265:
         })
         i += 1
 
-    #print (src)
     items += 12
