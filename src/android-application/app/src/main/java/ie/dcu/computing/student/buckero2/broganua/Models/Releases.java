@@ -1,4 +1,4 @@
-package ie.dcu.computing.student.buckero2.broganua;
+package ie.dcu.computing.student.buckero2.broganua.Models;
 
 public class Releases {
     private String ig_profile;

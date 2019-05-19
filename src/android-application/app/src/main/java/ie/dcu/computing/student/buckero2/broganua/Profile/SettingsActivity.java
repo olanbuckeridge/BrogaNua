@@ -1,4 +1,4 @@
-package ie.dcu.computing.student.buckero2.broganua;
+package ie.dcu.computing.student.buckero2.broganua.Profile;
 
 import android.os.Bundle;
 import android.preference.EditTextPreference;
@@ -9,6 +9,8 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
+
+import ie.dcu.computing.student.buckero2.broganua.R;
 
 public class SettingsActivity extends PreferenceActivity {
     @Override

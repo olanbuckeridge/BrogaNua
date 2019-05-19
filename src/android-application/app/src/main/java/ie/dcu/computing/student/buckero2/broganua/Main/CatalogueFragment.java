@@ -1,11 +1,10 @@
-package ie.dcu.computing.student.buckero2.broganua;
+package ie.dcu.computing.student.buckero2.broganua.Main;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -28,12 +27,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import ie.dcu.computing.student.buckero2.broganua.Adapters.CatalogueAdapter;
+import ie.dcu.computing.student.buckero2.broganua.Models.Products;
+import ie.dcu.computing.student.buckero2.broganua.R;
+
 public class CatalogueFragment extends Fragment{
 
     DatabaseReference reference;
     RecyclerView recyclerView;
     ArrayList<Products> productsList;
-    MyAdapter adapter;
+    CatalogueAdapter adapter;
     ProgressBar progressBar;
     Context context;
 
@@ -61,7 +64,7 @@ public class CatalogueFragment extends Fragment{
                     productsList.add(p);
                 }
                 //Collections.shuffle(productsList);
-                adapter = new MyAdapter(getContext(), productsList);
+                adapter = new CatalogueAdapter(getContext(), productsList);
                 recyclerView.setAdapter(adapter);
                 progressBar.setVisibility(View.INVISIBLE);
 
@@ -105,7 +108,7 @@ public class CatalogueFragment extends Fragment{
         switch (item.getItemId()) {
             case R.id.action_discovery:
                 Collections.shuffle(productsList);
-                adapter = new MyAdapter(getContext(), productsList);
+                adapter = new CatalogueAdapter(getContext(), productsList);
                 recyclerView.setAdapter(adapter);
         }
 

@@ -1,4 +1,4 @@
-package ie.dcu.computing.student.buckero2.broganua;
+package ie.dcu.computing.student.buckero2.broganua.Authentication;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -30,6 +30,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+
+import ie.dcu.computing.student.buckero2.broganua.R;
+import ie.dcu.computing.student.buckero2.broganua.Models.UserProfile;
 
 public class RegistrationActvity extends AppCompatActivity {
 

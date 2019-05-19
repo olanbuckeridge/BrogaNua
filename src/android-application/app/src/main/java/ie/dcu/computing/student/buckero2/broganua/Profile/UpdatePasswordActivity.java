@@ -1,4 +1,4 @@
-package ie.dcu.computing.student.buckero2.broganua;
+package ie.dcu.computing.student.buckero2.broganua.Profile;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +12,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
+
+import ie.dcu.computing.student.buckero2.broganua.R;
 
 public class UpdatePasswordActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package ie.dcu.computing.student.buckero2.broganua;
+package ie.dcu.computing.student.buckero2.broganua.Main;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -19,7 +19,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ReleasesFragment extends Fragment {
+import ie.dcu.computing.student.buckero2.broganua.Adapters.LimitedReleasesAdapter;
+import ie.dcu.computing.student.buckero2.broganua.Models.Releases;
+import ie.dcu.computing.student.buckero2.broganua.R;
+
+public class LimitedReleasesFragment extends Fragment {
     /*
     @Nullable
     @Override
@@ -30,7 +34,7 @@ public class ReleasesFragment extends Fragment {
     DatabaseReference reference;
     RecyclerView recyclerView;
     ArrayList<Releases> releasesList;
-    ReleaseAdapter adapter;
+    LimitedReleasesAdapter adapter;
 
     @Nullable
     @Override
@@ -51,7 +55,7 @@ public class ReleasesFragment extends Fragment {
                     Releases r = dataSnapshot1.getValue(Releases.class);
                     releasesList.add(r);
                 }
-                adapter = new ReleaseAdapter(getContext(), releasesList);
+                adapter = new LimitedReleasesAdapter(getContext(), releasesList);
                 recyclerView.setAdapter(adapter);
             }
 

@@ -17,17 +17,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ProductActivity" />
-        <activity android:name=".UpdatePasswordActivity" />
-        <activity android:name=".UpdateProfileActivity" />
+        <activity android:name=".Main.ProductActivity" />
+        <activity android:name=".Profile.UpdatePasswordActivity" />
+        <activity android:name=".Profile.UpdateProfileActivity" />
         <activity
-            android:name=".PasswordActivity"
+            android:name=".Authentication.ForgotPasswordActivity"
             android:theme="@style/AppTheme.noActionBar" />
         <activity
-            android:name=".RegistrationActvity"
+            android:name=".Authentication.RegistrationActvity"
             android:theme="@style/AppTheme.noActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Authentication.LoginActivity"
             android:theme="@style/AppTheme.noActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,9 +36,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Main.MainActivity"
             android:theme="@style/AppTheme.noActionBar" />
-        <activity android:name=".SettingsActivity" />
+        <activity android:name=".Profile.SettingsActivity" />
     </application>
 
 </manifest>

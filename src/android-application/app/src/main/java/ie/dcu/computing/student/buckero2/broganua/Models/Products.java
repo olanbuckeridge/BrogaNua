@@ -1,4 +1,4 @@
-package ie.dcu.computing.student.buckero2.broganua;
+package ie.dcu.computing.student.buckero2.broganua.Models;
 
 import java.io.Serializable;
 import java.util.Comparator;

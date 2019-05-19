@@ -1,6 +1,8 @@
-package ie.dcu.computing.student.buckero2.broganua;
+package ie.dcu.computing.student.buckero2.broganua.Sorting;
 
 import java.util.Comparator;
+
+import ie.dcu.computing.student.buckero2.broganua.Models.Products;
 
 public class PriceSorter implements Comparator<Products> {
 

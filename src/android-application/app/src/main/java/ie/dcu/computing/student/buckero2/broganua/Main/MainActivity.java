@@ -1,4 +1,4 @@
-package ie.dcu.computing.student.buckero2.broganua;
+package ie.dcu.computing.student.buckero2.broganua.Main;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -23,6 +23,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
+
+import ie.dcu.computing.student.buckero2.broganua.Authentication.LoginActivity;
+import ie.dcu.computing.student.buckero2.broganua.Profile.ProfileFragment;
+import ie.dcu.computing.student.buckero2.broganua.R;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
@@ -80,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_news:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ReleasesFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LimitedReleasesFragment()).commit();
                 break;
 
             case R.id.nav_profile:

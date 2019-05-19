@@ -1,4 +1,4 @@
-package ie.dcu.computing.student.buckero2.broganua;
+package ie.dcu.computing.student.buckero2.broganua.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,12 +16,15 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class ReleaseAdapter extends RecyclerView.Adapter<ReleaseAdapter.ReleaseViewHolder>{
+import ie.dcu.computing.student.buckero2.broganua.R;
+import ie.dcu.computing.student.buckero2.broganua.Models.Releases;
+
+public class LimitedReleasesAdapter extends RecyclerView.Adapter<LimitedReleasesAdapter.ReleaseViewHolder>{
 
     Context relcontext;
     ArrayList<Releases> releases;
 
-    public ReleaseAdapter(Context c, ArrayList<Releases> r)
+    public LimitedReleasesAdapter(Context c, ArrayList<Releases> r)
     {
         relcontext = c;
         releases = r;
@@ -29,12 +32,12 @@ public class ReleaseAdapter extends RecyclerView.Adapter<ReleaseAdapter.ReleaseV
 
     @NonNull
     @Override
-    public ReleaseAdapter.ReleaseViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new ReleaseAdapter.ReleaseViewHolder(LayoutInflater.from(relcontext).inflate(R.layout.release_card_view, viewGroup ,false));
+    public LimitedReleasesAdapter.ReleaseViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        return new LimitedReleasesAdapter.ReleaseViewHolder(LayoutInflater.from(relcontext).inflate(R.layout.release_card_view, viewGroup ,false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ReleaseAdapter.ReleaseViewHolder myViewHolder, int i) {
+    public void onBindViewHolder(@NonNull LimitedReleasesAdapter.ReleaseViewHolder myViewHolder, int i) {
         myViewHolder.profile.setText(releases.get(i).getIg_profile());
         myViewHolder.caption.setText(releases.get(i).getIg_caption());
         myViewHolder.onClick(i);

@@ -1,4 +1,4 @@
-package ie.dcu.computing.student.buckero2.broganua;
+package ie.dcu.computing.student.buckero2.broganua.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,12 +20,16 @@ import com.squareup.picasso.Picasso;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> implements Filterable, Serializable {
+import ie.dcu.computing.student.buckero2.broganua.Main.ProductActivity;
+import ie.dcu.computing.student.buckero2.broganua.Models.Products;
+import ie.dcu.computing.student.buckero2.broganua.R;
+
+public class CatalogueAdapter extends RecyclerView.Adapter<CatalogueAdapter.MyViewHolder> implements Filterable, Serializable {
 
     Context context;
     ArrayList<Products> products;
     private ArrayList<Products> productsFull;
-    public MyAdapter(Context c, ArrayList<Products> p)
+    public CatalogueAdapter(Context c, ArrayList<Products> p)
     {
         context = c;
         products = p;
